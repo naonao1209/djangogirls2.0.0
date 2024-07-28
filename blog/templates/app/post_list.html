@@ -18,6 +18,13 @@
                 <p>作業部屋</p>
                 <p>お風呂場</p>
                 <p>寝室</p>
+                <p>
+                    {% for post in posts %}
+                        <p>published: {{ post.published_date }}</p>
+                        <p>タイトル: {{ post.title }}</p>
+                        <p>{{ post.text | linebreaksbr }}</p>
+                    {% endfor %}
+                </p>
             </h2>
         </div>
         
