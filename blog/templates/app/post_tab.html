@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タブビュー</title>
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block h1 %}
+<h1>くまちゃんの部屋</h1>
+{% endblock %}
+
+{% block content %}
+<div class="tabbox">
+    <input type="radio" name="tabset" id="tabcheck1" checked>
+        <label for="tabcheck1" class="tab">作業部屋</label>
+    <input type="radio" name="tabset" id="tabcheck2"        >
+        <label for="tabcheck2" class="tab">　寝室　</label>
+    <input type="radio" name="tabset" id="tabcheck3"        >
+        <label for="tabcheck3" class="tab">　日常　</label>
+    
+    <div class="tabcontent" id="tabcontent1">
+        {% for post in working_images %}
+        <li class="blog-title">
+                <h2>{{ post.title }}</h2>
+                <span class="blog-container">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 600px;">
+                </span>
+        </li>
+        {% endfor %}
+    </div>
+    
+    <div class="tabcontent" id="tabcontent2">
+        {% for post in sleeping_images %}
+        <li class="blog-title">
+            <h2>{{ post.title }}</h2>
+            <span class="blog-container">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 600px;">
+            </span>
+        </li>
+        {% endfor %}
+    </div>
+    
+
+    <div class="tabcontent" id="tabcontent3">
+        {% for post in posts %}
+        <li class="blog-title">
+            <h2>
+                <a href="{% url 'app:post_detail' post.pk %}">
+                    {{post.title}}    
+                </a>
+                <br>
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 200px;">
+                {% endif %}
+            </h2>
+            <span class="updated-datetime" >{{post.published_date}}</span>
+        </li>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="confirm-container">
+    <h1>　くまちゃんの日常を覗いちゃう…??　</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="buttons-container">
+            <div class="bear-paw-button">
+                <button class="paw" type="submit" name="yes">
+                    <br>
+                    はい<br>
+                    是非、みたいです！
+                    <br>
+                </button>
+                <div class="claw1"></div>
+                <div class="claw2"></div>
+                <div class="claw3"></div>
+                <div class="claw4"></div>
+            </div>
+            <div class="bear-paw-button">
+                <button class="paw" type="submit" name="no">
+                    <br>
+                    やめとく…
+                    <br>
+                </button>
+                <div class="claw1"></div>
+                <div class="claw2"></div>
+                <div class="claw3"></div>
+                <div class="claw4"></div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

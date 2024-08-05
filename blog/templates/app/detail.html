@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日常</title>
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block h1 %}
+{% endblock %}
+
+{% block content %}
+<h1>{{post_detail.title}}</h1>
+<div>{{post_detail.text | linebreaksbr}}</div>
+{% if post_detail.image %}
+<div>
+    <br>
+    <img src="{{ post_detail.image.url }}" alt="{{ post.title }}" style="max-width: 600px;">
+</div>
+{% endif %}
+<h2><a href="{% url 'app:post_tab' %}">戻る</a></h2>
+{% endblock %}

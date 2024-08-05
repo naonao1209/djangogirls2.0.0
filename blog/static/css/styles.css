@@ -1,0 +1,210 @@
+
+.tab {
+    display: inline-block;          /* インラインブロック化 */
+    border-width: 1px 1px 0px 1px;  /* 上側と左右に枠線を引く */
+    border-style: solid;            /* 枠線の種類は「実線」 */
+    border-color: black;            /* 枠線の色は「黒」 */
+    border-radius: 0.75em 0.75em 0px 0px;  /* 左上と右上の角だけを丸くする */
+    padding: 0.75em 1em;            /* 内側の余白量 */
+    font-weight: bold;              /* タブの文字を太字にする */
+    color: black;                   /* タブの文字色：黒色 */
+    background-color: #e0e0e0;      /* タブの(非選択状態の)背景色：灰色 */
+}
+
+ .tab:hover {
+    color: rgb(100, 102, 100);                /* タブの文字色：緑色 */
+    background-color: #8b918b;   /* タブの背景色：淡い緑色 */
+    cursor: pointer;             /* マウスポインタの形状を「指(指し示す形)」にする */
+ }
+
+ .tabbox input {
+    display: none;
+}
+
+ input:checked + .tab {
+    color: rgb(28, 39, 198);                  /* タブの文字色：赤色 */
+    background-color: #a6cfd7;   /* タブの背景色：淡い黄色 */
+    z-index: 10;         /* ※2A */
+    position: relative;  /* ※3 */
+}
+
+ .tabcontent {
+    display: none;             /* 標準では非表示にする */
+    border: 1px solid black;   /* 枠線を引く：黒色で1ピクセルの実線 */
+    padding: 1em;              /* 内側の余白量 */
+    background-color: #a6cfd7; /* 背景色：淡い黄色(※選択中のタブの背景色と合わせます) */
+    margin-top: -1px;    /* ※1 */
+    z-index: 0;          /* ※2B */
+    position: relative;  /* ※3 */
+}
+
+ #tabcheck1:checked ~ #tabcontent1 {
+    display: block; 
+    /*height: 400px;*/
+}
+ #tabcheck2:checked ~ #tabcontent2 {
+    display: block;
+    /*height: 400px;*/ 
+}
+ #tabcheck3:checked ~ #tabcontent3 {
+    display: block;
+    /*height: 400px;*/
+} 
+
+.blog-title {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    transition: background 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+.blog-container {
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    /*height: 80vh; /* ビューポート全体の高さを使用 */
+    /*border: 1px solid black; /* 見やすいようにボーダーを追加 */
+}
+
+.blog-title-font{
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #444;
+    text-decoration: none;
+}
+
+.updated-datetime {
+    float: right;
+    font-size: 15px;
+    color: #888;
+}
+
+.breadcrumb {
+    display: flex;
+    list-style: none;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    padding: 0 0.5em;
+}
+
+.confirm-container{
+    background-image: url('/static/images/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.confirm-container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/images/background.jpeg'); /* 背景画像のパスを設定 */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px); /* ぼかし効果 */
+    z-index: -1; /* 背景画像を後ろに配置 */
+}
+
+.buttons-container{
+    display: flex;
+    gap: 300px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.bear-paw-button {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paw {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-color: rgb(178, 112, 18);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bear-paw-button::before,
+.bear-paw-button::after,
+.bear-paw-button .claw1,
+.bear-paw-button .claw2,
+.bear-paw-button .claw3,
+.bear-paw-button .claw4 {
+    content: '';
+    position: absolute;
+    background-color: rgb(178, 112, 18);
+    border-radius: 50%;
+}
+
+/*.bear-paw-button::before {
+    width: 40px;
+    height: 40px;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bear-paw-button::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}*/
+
+.bear-paw-button .claw1,
+.bear-paw-button .claw2,
+.bear-paw-button .claw3,
+.bear-paw-button .claw4 {
+    width: 60px;
+    height: 80px;
+    top: 20%;
+}
+
+.bear-paw-button .claw1 {
+    left: -60%;
+    top: 10%;
+}
+
+.bear-paw-button .claw2 {
+    left: 10%;
+    transform: translateX(-50%);
+    top:-50%;
+}
+
+.bear-paw-button .claw3 {
+    left: 90%;
+    transform: translateX(-50%);
+    top:-50%;
+}
+
+.bear-paw-button .claw4 {
+    right: -60%;
+    top: 10%;
+}
